@@ -61,7 +61,7 @@ try {
 } catch {
   throw new Error(`No ${sigFile}. Build with TAURI_SIGNING_PRIVATE_KEY set so the update is signed.`);
 }
-const siteUrl = (process.env.UPDATE_BASE_URL ?? "https://workos-abhinav.vercel.app").replace(/\/$/, "");
+const siteUrl = (process.env.UPDATE_BASE_URL ?? "https://work-os-peach.vercel.app").replace(/\/$/, "");
 mkdirSync(join(root, "public", "updates"), { recursive: true });
 writeFileSync(
   join(root, "public", "updates", "latest.json"),

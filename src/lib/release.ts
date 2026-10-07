@@ -5,7 +5,7 @@
 export const release = {
   version: "0.3.1",
   file: "/downloads/WorkOS-Setup-0.3.1-x64.exe",
-  bytes: 4174939,
-  sha256: "244899b1494d4847bc6bf52de78ff7e6e2b2c90257d90c27b50deeed7b8f1220",
+  bytes: 4174149,
+  sha256: "079bbbfc011ed186a2fc73bebf741342704b914e4db0569302ebf595bbdc6589",
   date: "2026-10-07",
 } as const;
