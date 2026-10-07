@@ -1,0 +1,11 @@
+{
+  "version": "0.3.1",
+  "notes": "WorkOS 0.3.1",
+  "pub_date": "2026-10-07T18:55:04.783Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUR2dBYmEwc1IvVmxlWmdtTWVONkZIVEg2eGlSWHlzSTZuZGtvSWgxODZ3N1Z2YlBFb3JPQ1l3Uzd2c3MrNC84WTMzL3ltR1pvREI5S0Rqc3IzcXdCcldwdGhkRDVkUnc4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxMzk5MjM3CWZpbGU6V29ya09TXzAuMy4xX3g2NC1zZXR1cC5leGUJdmVyc2lvbjowLjMuMQo3SlNrd2VTZyt0aTcvSERZSzZBS0xhb29lYXhtdUZiVFRleUNjeHlnZitBUVBqV1o4N2R1YjZ6eWVhNDUxeC9QOTd5M0lNd1pXMU1nM0dSdlluUm9CUT09Cg==",
+      "url": "https://workos-abhinav.vercel.app/downloads/WorkOS-Setup-0.3.1-x64.exe"
+    }
+  }
+}
