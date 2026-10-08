@@ -4,6 +4,7 @@
  * the site never advertises something that doesn't exist yet.
  */
 
+import { basePath, withBase } from "./base";
 import { release } from "./release";
 
 const env = (key: string) => {
@@ -13,7 +14,8 @@ const env = (key: string) => {
 
 export const site = {
   name: "WorkOS",
-  url: (env("NEXT_PUBLIC_SITE_URL") ?? "http://localhost:3000").replace(/\/$/, ""),
+  /** The site's address, with the /workos path (NEXT_PUBLIC_SITE_URL is just the origin). */
+  url: `${(env("NEXT_PUBLIC_SITE_URL") ?? "http://localhost:3000").replace(/\/$/, "").replace(/\/workos$/, "")}${basePath}`,
   tagline: "Your computer, organized around your work.",
   description:
     "WorkOS is a desktop workspace manager for developers. Create persistent workspaces for every project, switch contexts without closing apps, and keep clipboard, notes, downloads and media one glance away.",
@@ -34,7 +36,7 @@ export interface Platform {
  * The installer shipped with the site (public/downloads, see release.ts),
  * unless NEXT_PUBLIC_WINDOWS_DOWNLOAD_URL points somewhere else (a CDN).
  */
-const windowsUrl = env("NEXT_PUBLIC_WINDOWS_DOWNLOAD_URL") ?? release.file;
+const windowsUrl = env("NEXT_PUBLIC_WINDOWS_DOWNLOAD_URL") ?? withBase(release.file);
 
 /** Windows is the only platform with full support in the app today. */
 export const platforms: Platform[] = [

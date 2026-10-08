@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { withBase } from "@/lib/base";
 import { downloadCount } from "@/lib/downloads";
 import { isDownloadable, platforms, statusLabel, windows } from "@/lib/site";
 
@@ -22,7 +23,7 @@ export function DownloadButton({ size = "md", label }: { size?: "md" | "lg"; lab
   if (isDownloadable && windows.downloadUrl) {
     // Through /api/download, which counts the download and sends the installer.
     return (
-      <a href="/api/download" className={cls} download={windows.downloadUrl.startsWith("/") ? "" : undefined}>
+      <a href={withBase("/api/download")} className={cls} download={windows.downloadUrl.startsWith("/") ? "" : undefined}>
         <WindowsGlyph />
         {label ?? "Download for Windows"}
       </a>
