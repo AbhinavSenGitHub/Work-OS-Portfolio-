@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef } from "react";
-import { Launcher, Panel, Pill, ThemeScope } from "@/components/island/Island";
+import { useRef, useState } from "react";
+import { Launcher, Panel, Pill, ThemeScope, type NavId } from "@/components/island/Island";
 import { Icon } from "@/components/island/icons";
 import { HomePage, WorkspacePage } from "@/components/island/pages";
 import { NOW_PLAYING, WORKSPACES } from "@/lib/demo";
 import { siteTheme } from "@/lib/themes";
+import { LiveIsland } from "./LiveIsland";
 import { useCycle, useInView } from "./useCycle";
 
 const [winit, personal] = WORKSPACES;
@@ -20,13 +21,18 @@ const SCENES = [
 export function HeroDemo() {
   const ref = useRef<HTMLDivElement>(null);
   const visible = useInView(ref);
-  const { index, setIndex, paused, setPaused, reduced } = useCycle(SCENES.length, 3800, visible);
+  const [live, setLive] = useState<NavId | null>(null);
+  const { index, setIndex, paused, setPaused, reduced } = useCycle(SCENES.length, 3800, visible && !live);
+  const goLive = (id: NavId) => setLive(id);
 
   const ws = index >= 2 ? personal : winit;
   const download = index === 0 ? 42 : index === 1 ? 72 : undefined;
 
   return (
     <div ref={ref} className="relative">
+      {live ? (
+        <LiveIsland initialPage={live} onExit={() => { setLive(null); setPaused(false); }} className="shadow-[0_40px_120px_-40px_rgba(61,220,151,.35)]" />
+      ) : (
       <ThemeScope
         theme={siteTheme.tokens}
         wallpaper
@@ -53,12 +59,12 @@ export function HeroDemo() {
         </div>
         <div className="mx-auto mt-4 max-w-[760px]" key={`panel-${index >= 2 ? index : 0}`}>
           {index < 2 && (
-            <Panel title="Home" icon={Icon.Home} workspace={ws.name} apps={ws.apps} active="home">
+            <Panel title="Home" icon={Icon.Home} workspace={ws.name} apps={ws.apps} active="home" onNavigate={goLive}>
               <HomePage ws={ws} download={download ?? 100} />
             </Panel>
           )}
           {index === 2 && (
-            <Panel title="Workspace" icon={Icon.Grid} workspace={ws.name} apps={ws.apps} active="workspace" className="wi-enter">
+            <Panel title="Workspace" icon={Icon.Grid} workspace={ws.name} apps={ws.apps} active="workspace" className="wi-enter" onNavigate={goLive}>
               <WorkspacePage workspaces={WORKSPACES} activeId="personal" />
             </Panel>
           )}
@@ -84,26 +90,36 @@ export function HeroDemo() {
           Preview of the WorkOS Work Island and expanded panel. {SCENES[index].caption}
         </span>
       </ThemeScope>
+      )}
 
       <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
-        <p className="min-h-[2.5rem] max-w-md text-center text-sm text-muted sm:text-left">{SCENES[index].caption}</p>
+        <p className="min-h-[2.5rem] max-w-md text-center text-sm text-muted sm:text-left">
+          {live ? (
+            "Interactive preview with sample data. Click any icon, note, file or song."
+          ) : (
+            <>
+              {SCENES[index].caption} <span className="text-accent">Click any icon in the panel to try it.</span>
+            </>
+          )}
+        </p>
         <div className="flex items-center gap-2" role="group" aria-label="Preview controls">
           {SCENES.map((s, i) => (
             <button
               key={s.label}
               type="button"
               onClick={() => {
+                setLive(null);
                 setIndex(i);
                 setPaused(true);
               }}
               aria-label={`Show: ${s.label}`}
-              aria-pressed={i === index}
+              aria-pressed={!live && i === index}
               className="group grid size-7 place-items-center rounded-full"
             >
-              <span className={`block h-1.5 rounded-full transition-all ${i === index ? "w-5 bg-accent" : "w-1.5 bg-white/25 group-hover:bg-white/50"}`} />
+              <span className={`block h-1.5 rounded-full transition-all ${!live && i === index ? "w-5 bg-accent" : "w-1.5 bg-white/25 group-hover:bg-white/50"}`} />
             </button>
           ))}
-          {!reduced && (
+          {!reduced && !live && (
             <button
               type="button"
               onClick={() => setPaused(!paused)}

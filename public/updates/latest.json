@@ -1,11 +1,11 @@
 {
-  "version": "0.3.1",
-  "notes": "WorkOS 0.3.1",
-  "pub_date": "2026-10-07T19:52:29.780Z",
+  "version": "0.3.2",
+  "notes": "WorkOS 0.3.2",
+  "pub_date": "2026-10-08T06:00:22.574Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUR2dBYmEwc1IvVmgrUWJUZVg5NkhISFJPck1HL1p5d2tjVDFpUmN0d0pMbkwyaEh0M3I2VkVLc3pMSGZLVHZyU3ZVV2dOTnlUdVNmY1BCY2dZMjlEMnphUVQyVU9ZWEFRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNDAyNzQ4CWZpbGU6V29ya09TXzAuMy4xX3g2NC1zZXR1cC5leGUJdmVyc2lvbjowLjMuMQpXdTV3RTk0WGEwQkxyVkw2V0RiNlVla2t5c0RUZWhjYS9iQVV0M1FTd3QwU3B4eG1CdW5aVU43UUFNanhnQVV4b0pLdFZ4NFFUMTh1NUloRDdpVm5Cdz09Cg==",
-      "url": "https://work-os-peach.vercel.app/downloads/WorkOS-Setup-0.3.1-x64.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUR2dBYmEwc1IvVnMxS3V4MG1rVjBuWWFVY1VFTFNHYmRiMFBtRm5TQlc1bEIycEhkSWdWditVZGlDRkdZeHdYSndlOVFWYjdDbUo5bXBnU2h0UVdxVTU4SGFCNHB3ZGdFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNDM5MjIwCWZpbGU6V29ya09TXzAuMy4yX3g2NC1zZXR1cC5leGUJdmVyc2lvbjowLjMuMgpaWUprdDhtU1pLdHFKQytIbnRiZ283eUxWY0pWUk5KTmgwUk5tOHhhdjVLbzk0UGJqL1dsQXhsVEdNRUpsazcwNUthR2cveDNYc0lkaURCSER6TE1Bdz09Cg==",
+      "url": "https://work-os-peach.vercel.app/downloads/WorkOS-Setup-0.3.2-x64.exe"
     }
   }
 }
