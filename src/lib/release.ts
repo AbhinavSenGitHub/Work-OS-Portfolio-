@@ -3,9 +3,9 @@
  * Written by `npm run publish:installer` — don't edit by hand.
  */
 export const release = {
-  version: "0.3.8",
-  file: "/downloads/WorkOS-Setup-0.3.8-x64.exe",
-  bytes: 4191466,
-  sha256: "574b7a089269f8a4a69cabe7343067fe01efb74ca11c28d69cb15aa3a842c6c3",
+  version: "0.3.9",
+  file: "/downloads/WorkOS-Setup-0.3.9-x64.exe",
+  bytes: 4194733,
+  sha256: "634d68141c836da8e98e092065d4216b3dc87e04428be05b1a31302a97bd62ef",
   date: "2026-10-08",
 } as const;
