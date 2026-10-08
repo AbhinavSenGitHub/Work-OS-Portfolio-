@@ -14,7 +14,7 @@ export const FAQ: Faq[] = [
   },
   {
     q: "What is a WorkOS workspace?",
-    a: "A workspace is a named work environment, like \"Winit\", \"Personal\" or \"Client A\". It owns a set of apps and windows, remembers their context, and can have its own notes, Chrome profile and tabs.",
+    a: "A workspace is a named work environment, like \"Acme\", \"Personal\" or \"Client A\". It owns a set of apps and windows, remembers their context, and can have its own notes, Chrome profile and tabs.",
   },
   {
     q: "Does WorkOS close my applications when I switch workspaces?",
@@ -34,11 +34,23 @@ export const FAQ: Faq[] = [
   },
   {
     q: "Does WorkOS work offline?",
-    a: "Yes. Everything works offline except the optional weather card, which is off by default and uses the Open-Meteo service when you turn it on.",
+    a: "Yes. Everything works offline except the optional weather card, which is off by default and uses the Open-Meteo service when you turn it on, and the update check, which looks for a new version on this website about once an hour when you are online.",
   },
   {
     q: "Where is my workspace data stored?",
-    a: "On your computer. Workspaces, clipboard history, notes and preferences are stored in a local SQLite database in your user's app data folder, and clipboard images are stored as files next to it. WorkOS has no account, no sync and no analytics.",
+    a: "On your computer. Workspaces, clipboard history, notes and preferences are stored in a local SQLite database in your user's app data folder, and clipboard images are stored as files next to it. WorkOS has no account, no sync and no analytics."
+  },
+  {
+    q: "How does WorkOS update?",
+    a: "Automatically. When you're online WorkOS checks for a new version about once an hour, downloads it in the background and installs it while you aren't using WorkOS itself, so you can keep working in other apps. It restarts in a few seconds with your workspace as it was. Updates are signed, and WorkOS refuses any file that isn't."
+  },
+  {
+    q: "Is WorkOS free?",
+    a: "Every feature is free for 30 days, with no card needed. After that, a plan unlocks it: $6 a month, $48 a year or $99 once. You paste your license code into WorkOS; it works offline and isn't tied to an account."
+  },
+  {
+    q: "Does WorkOS start with Windows?",
+    a: "Yes, if you want it to. WorkOS starts right after you sign in and is ready in a moment. You can turn this off in Settings.",
   },
   {
     q: "Does WorkOS support Windows?",

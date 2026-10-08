@@ -115,7 +115,7 @@ const SHOTS = [
     body: (
       <>
         <div className="absolute left-1/2 top-4 -translate-x-1/2 scale-90">
-          <Pill workspace="Winit" apps={WORKSPACES[0].apps.slice(0, 4)} media={{ title: NOW_PLAYING.title }} compact />
+          <Pill workspace="Acme" apps={WORKSPACES[0].apps.slice(0, 4)} media={{ title: NOW_PLAYING.title }} compact />
         </div>
       </>
     ),
@@ -132,10 +132,10 @@ const SHOTS = [
   },
   {
     title: "Chrome, work profile",
-    caption: "The Winit workspace opens Chrome with its own profile and tabs, restored by the extension.",
+    caption: "The Acme workspace opens Chrome with its own profile and tabs, restored by the extension.",
     body: (
       <>
-        <div className="absolute left-1/2 top-4 -translate-x-1/2 scale-90"><Pill workspace="Winit" download={72} compact /></div>
+        <div className="absolute left-1/2 top-4 -translate-x-1/2 scale-90"><Pill workspace="Acme" download={72} compact /></div>
         <Window app={APPS.chrome} title="winit · Issues">
           <div className="mb-2 flex gap-1">{["Issues", "Docs", "CI"].map((t) => <span key={t} className="rounded bg-white/10 px-2 py-0.5 text-[10px] text-white/60">{t}</span>)}</div>
           {lines(5, 1)}
@@ -148,7 +148,7 @@ const SHOTS = [
     caption: "Notes open from the island and autosave as you type.",
     body: (
       <div className="absolute inset-3 top-4 origin-top scale-[.62] sm:scale-[.58]" style={{ width: "160%" }}>
-        <Panel title="Notes" icon={Icon.Note} workspace="Winit" active="notes"><NotesPage /></Panel>
+        <Panel title="Notes" icon={Icon.Note} workspace="Acme" active="notes"><NotesPage /></Panel>
       </div>
     ),
   },
@@ -157,7 +157,7 @@ const SHOTS = [
     caption: "Code, links, files and images you copied, each one click away from the clipboard again.",
     body: (
       <div className="absolute inset-3 top-4 origin-top scale-[.62] sm:scale-[.58]" style={{ width: "160%" }}>
-        <Panel title="Clipboard" icon={Icon.Clipboard} workspace="Winit" active="clipboard"><ClipboardPage /></Panel>
+        <Panel title="Clipboard" icon={Icon.Clipboard} workspace="Acme" active="clipboard"><ClipboardPage /></Panel>
       </div>
     ),
   },
@@ -166,7 +166,7 @@ const SHOTS = [
     caption: "The Downloads folder as a shelf of previews, with Open and Show in folder.",
     body: (
       <div className="absolute inset-3 top-4 origin-top scale-[.62] sm:scale-[.58]" style={{ width: "160%" }}>
-        <Panel title="Downloads" icon={Icon.Download} workspace="Winit" active="downloads"><DownloadsPage /></Panel>
+        <Panel title="Downloads" icon={Icon.Download} workspace="Acme" active="downloads"><DownloadsPage /></Panel>
       </div>
     ),
   },

@@ -73,7 +73,7 @@ export function ogImage({
             }}
           >
             <div style={{ width: 11, height: 11, borderRadius: 11, background: accent }} />
-            Winit
+            Acme
             <div style={{ display: "flex", gap: 6, marginLeft: 6 }}>
               {["#2f7fd8", "#e0a526", "#3a3f4b", "#d97757"].map((c) => (
                 <div key={c} style={{ width: 24, height: 24, borderRadius: 7, background: c }} />

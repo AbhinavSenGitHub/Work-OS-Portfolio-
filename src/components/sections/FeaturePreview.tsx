@@ -29,7 +29,7 @@ function Body({ kind }: { kind: PreviewKind }) {
       return (
         <div className="wi-grid-2" style={{ height: "100%", alignContent: "start" }}>
           <div className="wi-card" style={{ display: "grid", gap: 6, alignContent: "start" }}>
-            <span className="wi-label">Winit · running</span>
+            <span className="wi-label">Acme · running</span>
             {([APPS.terminal, APPS.claude, APPS.vscode] as DemoApp[]).map((a) => (
               <div key={a.name} className="wi-row" style={{ padding: "6px 8px" }}>
                 <AppTile app={a} />

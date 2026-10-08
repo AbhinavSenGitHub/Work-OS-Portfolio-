@@ -12,9 +12,9 @@ import { useCycle, useInView } from "./useCycle";
 const [winit, personal] = WORKSPACES;
 
 const SCENES = [
-  { caption: "Winit is running. A download reports its progress in the island.", label: "Download in progress" },
+  { caption: "Acme is running. A download reports its progress in the island.", label: "Download in progress" },
   { caption: "Music starts. The island shows it without taking more space.", label: "Media playing" },
-  { caption: "Switch to Personal. Winit's apps are hidden, not closed.", label: "Switch workspace" },
+  { caption: "Switch to Personal. Acme's apps are hidden, not closed.", label: "Switch workspace" },
   { caption: "Maximize an app and the island steps aside into a small W.", label: "Out of the way" },
 ];
 

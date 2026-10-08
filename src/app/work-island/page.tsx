@@ -20,7 +20,7 @@ export const metadata: Metadata = pageMetadata({
 
 const ISLAND_FAQ = [
   { q: "Where does the Work Island appear?", a: "At the top of your screen by default. It can be dragged, remembers its position, and stays within the usable area of your monitor." },
-  { q: "Will it cover my apps?", a: "When an app is maximized or covers the pill, the island shrinks to a small W at the edge of the screen. During fullscreen video or games it hides completely; Ctrl+Alt+Space still opens it." },
+  { q: "Will it cover my apps?", a: "When an app is maximized or covers the pill, the island shrinks to a small W at the edge of the screen. Drag the W anywhere; it stays where you put it. During fullscreen video or games it hides completely; Ctrl+Alt+Space still opens it." },
   { q: "Does it show in the taskbar?", a: "No. The island is always on top and has no taskbar entry." },
   { q: "Can I open it from the keyboard?", a: "Yes. Ctrl+Alt+Space opens the expanded panel and Win+Shift+V opens clipboard history. Both shortcuts can be changed." },
 ];
@@ -67,7 +67,7 @@ export default function WorkIslandPage() {
           </ThemeScope>
           <dl className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              ["Workspace", "The current workspace with a status dot. After a switch it briefly shows “Winit → Personal”."],
+              ["Workspace", "The current workspace with a status dot. After a switch it briefly shows “Acme → Personal”."],
               ["App chips", "The apps in this workspace."],
               ["Download", "Live progress while a file downloads, then a brief check mark."],
               ["Now playing", "An equalizer and the track title while media plays."],

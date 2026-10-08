@@ -11,9 +11,9 @@ export interface DemoApp {
 }
 
 export const APPS = {
-  vscode: { name: "VS Code", short: "VS", color: "#2f7fd8", context: "~/winit" },
+  vscode: { name: "VS Code", short: "VS", color: "#2f7fd8", context: "~/acme" },
   chrome: { name: "Chrome", short: "Ch", color: "#e0a526", context: "Profile · Work" },
-  terminal: { name: "Terminal", short: ">_", color: "#3a3f4b", context: "~/winit/api" },
+  terminal: { name: "Terminal", short: ">_", color: "#3a3f4b", context: "~/acme/api" },
   claude: { name: "Claude", short: "Cl", color: "#d97757" },
   postman: { name: "Postman", short: "Pm", color: "#ef5b25" },
   spotify: { name: "Spotify", short: "Sp", color: "#1db954" },
@@ -38,7 +38,7 @@ export interface DemoWorkspace {
 export const WORKSPACES: DemoWorkspace[] = [
   {
     id: "winit",
-    name: "Winit",
+    name: "Acme",
     description: "Product work: editor on the repo, API terminal, docs in Chrome.",
     apps: [APPS.vscode, APPS.chrome, APPS.terminal, APPS.claude, APPS.postman],
   },

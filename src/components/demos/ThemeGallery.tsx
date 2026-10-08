@@ -75,7 +75,7 @@ function MiniPreview({ theme }: { theme: Theme }) {
   return (
     <ThemeScope theme={theme.tokens} wallpaper className="pointer-events-none relative h-28 overflow-hidden rounded-[14px]">
       <div className="absolute left-1/2 top-3 -translate-x-1/2 scale-[.72]">
-        <Pill workspace="Winit" apps={WORKSPACES[0].apps.slice(0, 3)} />
+        <Pill workspace="Acme" apps={WORKSPACES[0].apps.slice(0, 3)} />
       </div>
       <div
         className="absolute inset-x-5 bottom-0 top-14 rounded-t-[14px] border border-b-0"
