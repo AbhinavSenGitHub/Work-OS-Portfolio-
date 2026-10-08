@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Pricing } from "@/components/sections/Home";
-import { DownloadButton } from "@/components/site/Download";
+import { DownloadButton, DownloadCount } from "@/components/site/Download";
 import { PageHero } from "@/components/site/PageHero";
 import { Container } from "@/components/site/Section";
 import { pageMetadata } from "@/lib/seo";
@@ -54,6 +54,7 @@ export default function DownloadPage() {
                     <p className="mt-3 text-xs text-dim">
                       Version {release.version} · {megabytes(release.bytes)} · {release.date}
                     </p>
+                    <DownloadCount className="mt-1" />
                     <p className="mt-2 text-xs text-dim">
                       Free for 30 days, then $6/month, $48/year or $99 lifetime. Updates install automatically.
                     </p>

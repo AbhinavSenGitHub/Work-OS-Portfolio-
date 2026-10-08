@@ -5,7 +5,7 @@ import { InAction } from "@/components/demos/InAction";
 import { ThemeGallery } from "@/components/demos/ThemeGallery";
 import { IslandStates } from "@/components/sections/IslandStates";
 import { BeforeAfter, Comparison, ContextGallery, Developers, Pricing, Privacy } from "@/components/sections/Home";
-import { DownloadBand, DownloadButton, PlatformList, SecondaryButton } from "@/components/site/Download";
+import { DownloadBand, DownloadButton, DownloadCount, PlatformList, SecondaryButton } from "@/components/site/Download";
 import { FaqList } from "@/components/site/FaqList";
 import { JsonLd } from "@/components/site/JsonLd";
 import { Container, SectionHeading } from "@/components/site/Section";
@@ -54,6 +54,7 @@ export default function HomePage() {
               <DownloadButton size="lg" label="Download WorkOS" />
               <SecondaryButton href="#product">Explore WorkOS</SecondaryButton>
             </div>
+            <DownloadCount className="mt-4" />
             <PlatformList className="mt-7 justify-center" />
           </div>
           <div className="mx-auto mt-14 max-w-5xl">

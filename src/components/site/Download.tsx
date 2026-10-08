@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { downloadCount } from "@/lib/downloads";
 import { isDownloadable, platforms, statusLabel, windows } from "@/lib/site";
 
 function WindowsGlyph() {
@@ -19,8 +20,9 @@ export function DownloadButton({ size = "md", label }: { size?: "md" | "lg"; lab
     size === "lg" ? "h-12 px-6 text-[15px]" : "h-10 px-5 text-sm"
   }`;
   if (isDownloadable && windows.downloadUrl) {
+    // Through /api/download, which counts the download and sends the installer.
     return (
-      <a href={windows.downloadUrl} className={cls} download={windows.downloadUrl.startsWith("/") ? "" : undefined}>
+      <a href="/api/download" className={cls} download={windows.downloadUrl.startsWith("/") ? "" : undefined}>
         <WindowsGlyph />
         {label ?? "Download for Windows"}
       </a>
@@ -31,6 +33,17 @@ export function DownloadButton({ size = "md", label }: { size?: "md" | "lg"; lab
       <WindowsGlyph />
       {label ?? "Get WorkOS"}
     </Link>
+  );
+}
+
+/** "1,234 downloads" — shown once the counter has a number. */
+export async function DownloadCount({ className = "" }: { className?: string }) {
+  const n = await downloadCount();
+  if (n === null) return null;
+  return (
+    <p className={`text-xs text-dim ${className}`}>
+      <span className="font-semibold text-fg tabular-nums">{n.toLocaleString("en-US")}</span> {n === 1 ? "download" : "downloads"}
+    </p>
   );
 }
 
