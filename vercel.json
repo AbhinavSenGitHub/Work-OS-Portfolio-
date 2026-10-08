@@ -1,17 +1,81 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
-    { "source": "/updates/:path*", "destination": "/workos/updates/:path*" },
-    { "source": "/downloads/:path*", "destination": "/workos/downloads/:path*" },
-    { "source": "/api/:path*", "destination": "/workos/api/:path*" },
-    { "source": "/robots.txt", "destination": "/workos/robots.txt" },
-    { "source": "/sitemap.xml", "destination": "/workos/sitemap.xml" }
+    {
+      "source": "/updates/:path*",
+      "destination": "/workos/updates/:path*"
+    },
+    {
+      "source": "/downloads/:path*",
+      "destination": "/workos/downloads/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/workos/api/:path*"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/workos/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/workos/sitemap.xml"
+    }
   ],
   "redirects": [
-    { "source": "/", "destination": "/workos", "permanent": false },
     {
-      "source": "/:path((?!workos(?:/|$)|updates/|downloads/|api/|robots\.txt$|sitemap\.xml$|_next/|_vercel/).*)",
-      "destination": "/workos/:path",
+      "source": "/",
+      "destination": "/workos",
+      "permanent": false
+    },
+    {
+      "source": "/download",
+      "destination": "/workos/download",
+      "permanent": false
+    },
+    {
+      "source": "/faq",
+      "destination": "/workos/faq",
+      "permanent": false
+    },
+    {
+      "source": "/privacy",
+      "destination": "/workos/privacy",
+      "permanent": false
+    },
+    {
+      "source": "/pulse",
+      "destination": "/workos/pulse",
+      "permanent": false
+    },
+    {
+      "source": "/work-island",
+      "destination": "/workos/work-island",
+      "permanent": false
+    },
+    {
+      "source": "/workspaces",
+      "destination": "/workos/workspaces",
+      "permanent": false
+    },
+    {
+      "source": "/features",
+      "destination": "/workos/features",
+      "permanent": false
+    },
+    {
+      "source": "/features/:path*",
+      "destination": "/workos/features/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/themes",
+      "destination": "/workos/themes",
+      "permanent": false
+    },
+    {
+      "source": "/themes/:path*",
+      "destination": "/workos/themes/:path*",
       "permanent": false
     }
   ]
