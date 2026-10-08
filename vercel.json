@@ -5,6 +5,10 @@
       "source": "/updates/:path*",
       "destination": "/workos/updates/:path*"
     },
+     {
+      "source": "/workos/downloads/:path*",
+      "destination": "/workos/downloads/:path*"
+    },
     {
       "source": "/downloads/:path*",
       "destination": "/workos/downloads/:path*"
