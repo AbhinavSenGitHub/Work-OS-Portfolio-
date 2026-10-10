@@ -8,6 +8,9 @@
 
 const KEY = "downloads:windows";
 
+/** The site shows the count only once it is above this (still counted below it). */
+const SHOW_FROM = 100;
+
 const store = () => {
   const url = process.env.KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.KV_REST_API_TOKEN ?? process.env.UPSTASH_REDIS_REST_TOKEN;
@@ -44,11 +47,11 @@ export async function countDownload(version: string): Promise<void> {
   }
 }
 
-/** Total downloads, refreshed every 5 minutes; null when unknown. */
+/** Total downloads to show, refreshed every 5 minutes; null when unknown or not above SHOW_FROM yet. */
 export async function downloadCount(): Promise<number | null> {
   try {
     const n = Number(await redis(["GET", KEY], { next: { revalidate: 300 } }));
-    return Number.isFinite(n) && n > 0 ? n : null;
+    return Number.isFinite(n) && n > SHOW_FROM ? n : null;
   } catch {
     return null;
   }
