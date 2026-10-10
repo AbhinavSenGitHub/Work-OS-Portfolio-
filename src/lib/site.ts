@@ -15,7 +15,7 @@ const env = (key: string) => {
 export const site = {
   name: "WorkOS",
   /** The site's address, with the /workos path (NEXT_PUBLIC_SITE_URL is just the origin). */
-  url: `${(env("NEXT_PUBLIC_SITE_URL") ?? "http://localhost:3000").replace(/\/$/, "").replace(/\/workos$/, "")}${basePath}`,
+  url: `${(env("NEXT_PUBLIC_SITE_URL") ?? "https://www.abhinavsen.com").replace(/\/$/, "").replace(/\/workos$/, "")}${basePath}`,
   tagline: "Your computer, organized around your work.",
   description:
     "WorkOS is a desktop workspace manager for developers. Create persistent workspaces for every project, switch contexts without closing apps, and keep clipboard, notes, downloads and media one glance away.",
