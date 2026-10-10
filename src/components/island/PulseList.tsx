@@ -23,7 +23,7 @@ export const SIGNALS: Signal[] = [
   { id: "update", title: "Windows Update", detail: "Restart required", tone: "warn", icon: <Icon.Restart /> },
   { id: "suggest", title: "Postman detected", detail: "Add to Acme?", tone: "accent", icon: <AppTile app={APPS.postman} /> },
   { id: "download", title: "Download", detail: "dataset-sample.zip · Complete", tone: "accent", icon: <Icon.Check /> },
-  { id: "progress", title: "Download", detail: "winit-release-notes.pdf · 72%", tone: "muted", icon: <ProgressRing value={72} size={16} stroke={2} /> },
+  { id: "progress", title: "Download", detail: "acme-release-notes.pdf · 72%", tone: "muted", icon: <ProgressRing value={72} size={16} stroke={2} /> },
   { id: "claude", title: "Claude Code", detail: "Waiting for permission", tone: "muted", icon: <AppTile app={APPS.claude} />, planned: true },
   { id: "build", title: "Build", detail: "Failed", tone: "muted", icon: <Icon.Info />, planned: true },
 ];

@@ -126,7 +126,7 @@ const SHOTS = [
     body: (
       <>
         <div className="absolute right-4 top-4"><Launcher state="active" /></div>
-        <Window app={APPS.vscode} title="auth.rs — winit">{lines(8, 3)}</Window>
+        <Window app={APPS.vscode} title="auth.rs — acme">{lines(8, 3)}</Window>
       </>
     ),
   },
@@ -136,7 +136,7 @@ const SHOTS = [
     body: (
       <>
         <div className="absolute left-1/2 top-4 -translate-x-1/2 scale-90"><Pill workspace="Acme" download={72} compact /></div>
-        <Window app={APPS.chrome} title="winit · Issues">
+        <Window app={APPS.chrome} title="acme · Issues">
           <div className="mb-2 flex gap-1">{["Issues", "Docs", "CI"].map((t) => <span key={t} className="rounded bg-white/10 px-2 py-0.5 text-[10px] text-white/60">{t}</span>)}</div>
           {lines(5, 1)}
         </Window>

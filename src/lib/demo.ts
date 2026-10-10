@@ -70,15 +70,15 @@ export const WORKSPACES: DemoWorkspace[] = [
 
 export const CLIPBOARD = [
   { kind: "Code", text: "const token = jwt.sign({ sub: user.id }, SECRET, { expiresIn: \"15m\" });", age: "just now" },
-  { kind: "Link", text: "https://github.com/rust-windowing/winit/issues", age: "2m" },
+  { kind: "Link", text: "https://github.com/acme/api/issues", age: "2m" },
   { kind: "Image", text: "Screenshot 2026-09-28 142211.png", age: "6m" },
   { kind: "Text", text: "Refresh tokens are rotated on every use and revoked on logout.", age: "14m" },
   { kind: "File", text: "invoice-client-a-sept.pdf", age: "32m" },
-  { kind: "Folder", text: "D:\\projects\\winit\\crates", age: "1h" },
+  { kind: "Folder", text: "D:\\projects\\acme\\crates", age: "1h" },
 ] as const;
 
 export const DOWNLOADS = [
-  { name: "winit-release-notes.pdf", type: "PDF", size: "412 KB", age: "Downloading", progress: 72 },
+  { name: "acme-release-notes.pdf", type: "PDF", size: "412 KB", age: "Downloading", progress: 72 },
   { name: "wireframe-v3.png", type: "PNG", size: "1.8 MB", age: "just now", isNew: true },
   { name: "dataset-sample.zip", type: "ZIP", size: "24.6 MB", age: "5m" },
   { name: "node-v22-x64.msi", type: "MSI", size: "30.1 MB", age: "1h" },

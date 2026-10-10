@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { JsonLd } from "@/components/site/JsonLd";
+import { SiteChrome } from "@/components/site/SiteChrome";
 import { analytics, site } from "@/lib/site";
 import { organizationLd, websiteLd } from "@/lib/seo";
 import "./globals.css";
@@ -42,12 +43,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="min-h-dvh">
-        <a href="#main" className="skip-link">
-          Skip to content
-        </a>
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
+        <SiteChrome header={<Header />} footer={<Footer />}>
+          {children}
+        </SiteChrome>
         <JsonLd data={[organizationLd(), websiteLd()]} />
         {analytics.domain && <Script defer data-domain={analytics.domain} src={analytics.src} strategy="afterInteractive" />}
       </body>

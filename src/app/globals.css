@@ -680,3 +680,10 @@ body {
   white-space: nowrap;
   animation: wi-in 260ms ease both;
 }
+
+/* /embed pages sit inside another site's iframe: let its background show. */
+html:has(.embed-root),
+html:has(.embed-root) body {
+  min-height: 0;
+  background: transparent;
+}

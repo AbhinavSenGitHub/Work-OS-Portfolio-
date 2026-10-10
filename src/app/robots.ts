@@ -3,7 +3,7 @@ import { absoluteUrl, site } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [{ userAgent: "*", allow: "/", disallow: ["/api/", "/workos/api/"] }],
+    rules: [{ userAgent: "*", allow: "/", disallow: ["/api/", "/workos/api/", "/workos/embed/"] }],
     sitemap: absoluteUrl("/sitemap.xml"),
     host: new URL(site.url).origin,
   };
