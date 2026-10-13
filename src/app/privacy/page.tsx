@@ -60,11 +60,11 @@ export default function PrivacyPage() {
             <section aria-labelledby="site-title">
               <h2 id="site-title" className="mb-4 text-2xl font-semibold text-fg">This website</h2>
               <p>This website does not set cookies and does not use advertising or cross-site tracking.</p>
-              {analytics.domain ? (
-                <p>We count page views with a cookieless, privacy-focused analytics service that doesn&apos;t collect personal data or track you across sites.</p>
-              ) : (
-                <p>No analytics scripts are loaded.</p>
-              )}
+              <p>
+                We count page views with {analytics.domain ? "cookieless, privacy-focused analytics" : "Vercel Web Analytics"}: how many
+                visits each page gets, and the visitor&apos;s country, device and the site they came from. It sets no cookies, doesn&apos;t
+                collect personal data and doesn&apos;t follow you across sites. The WorkOS app itself never sends this kind of data.
+              </p>
               <p>Fonts are served from this site, not from a third-party font service.</p>
             </section>
           </article>
