@@ -4,6 +4,10 @@
 //
 //   npm run publish:installer                 (uses ../workOS)
 //   npm run publish:installer -- <path-to-setup.exe>
+//   npm run publish:installer -- --update-only
+//       Only installed copies update to the new build; the site's Download
+//       button keeps its installer (one Microsoft SmartScreen already
+//       knows), and new users update from it on first start.
 
 import { createHash } from "node:crypto";
 import { copyFileSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
@@ -13,8 +17,11 @@ import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const bundle = resolve(root, "..", "workOS", "src-tauri", "target", "release", "bundle", "nsis");
 
+const args = process.argv.slice(2);
+const updateOnly = args.includes("--update-only");
+
 function latestInstaller() {
-  const given = process.argv[2];
+  const given = args.find((a) => !a.startsWith("--"));
   if (given) return resolve(given);
   const found = readdirSync(bundle)
     .filter((f) => /-setup\.exe$/i.test(f))
@@ -29,15 +36,20 @@ const version = /_(\d+\.\d+\.\d+)_/.exec(basename(source))?.[1] ?? "0.0.0";
 const name = `WorkOS-Setup-${version}-x64.exe`;
 const outDir = join(root, "public", "downloads");
 mkdirSync(outDir, { recursive: true });
-// Only the current installer is served.
-for (const old of readdirSync(outDir)) if (/^WorkOS-Setup-.*\.exe$/i.test(old) && old !== name) rmSync(join(outDir, old));
+// The installer the Download button serves (kept by --update-only).
+const releaseFile = join(root, "src", "lib", "release.ts");
+const siteName = updateOnly ? /file: "\/downloads\/([^"]+)"/.exec(readFileSync(releaseFile, "utf8"))?.[1] : name;
+if (updateOnly && !siteName) throw new Error("No current site installer in src/lib/release.ts.");
+// Only the current installer(s) are served.
+for (const old of readdirSync(outDir))
+  if (/^WorkOS-Setup-.*\.exe$/i.test(old) && old !== name && old !== siteName) rmSync(join(outDir, old));
 copyFileSync(source, join(outDir, name));
 
 const bytes = readFileSync(join(outDir, name));
 const sha256 = createHash("sha256").update(bytes).digest("hex");
 const date = new Date().toISOString().slice(0, 10);
-writeFileSync(
-  join(root, "src", "lib", "release.ts"),
+if (!updateOnly) writeFileSync(
+  releaseFile,
   `/**
  * The Windows installer shipped with this site (in /public/downloads).
  * Written by \`npm run publish:installer\` — don't edit by hand.
@@ -77,4 +89,5 @@ writeFileSync(
   ) + "\n",
 );
 
+if (updateOnly) console.log(`Update only: the site still serves ${siteName}`);
 console.log(`Published ${name} (${(bytes.length / 1048576).toFixed(1)} MB)\nSHA-256 ${sha256}`);
