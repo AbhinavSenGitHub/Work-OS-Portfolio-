@@ -5,7 +5,7 @@ import { InAction } from "@/components/demos/InAction";
 import { ThemeGallery } from "@/components/demos/ThemeGallery";
 import { IslandStates } from "@/components/sections/IslandStates";
 import { BeforeAfter, Comparison, ContextGallery, Developers, Pricing, Privacy } from "@/components/sections/Home";
-import { DownloadBand, DownloadButton, DownloadCount, PlatformList, SecondaryButton } from "@/components/site/Download";
+import { DownloadBand, DownloadButton, DownloadCount, LinuxDownloadButton, PlatformList, SecondaryButton } from "@/components/site/Download";
 import { FaqList } from "@/components/site/FaqList";
 import { JsonLd } from "@/components/site/JsonLd";
 import { Container, SectionHeading } from "@/components/site/Section";
@@ -51,7 +51,8 @@ export default function HomePage() {
               Create persistent workspaces for every project, switch contexts instantly, and keep the tools, files and activity you need close at hand.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <DownloadButton size="lg" label="Download WorkOS" />
+              <DownloadButton size="lg" label="Download for Windows" />
+              <LinuxDownloadButton />
               <SecondaryButton href="#product">Explore WorkOS</SecondaryButton>
             </div>
             <DownloadCount className="mt-4" />

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { withBase } from "@/lib/base";
 import { downloadCount } from "@/lib/downloads";
-import { isDownloadable, platforms, statusLabel, windows } from "@/lib/site";
+import { isDownloadable, linux, platforms, statusLabel, windows } from "@/lib/site";
 
 function WindowsGlyph() {
   return (
@@ -34,6 +34,29 @@ export function DownloadButton({ size = "md", label }: { size?: "md" | "lg"; lab
       <WindowsGlyph />
       {label ?? "Get WorkOS"}
     </Link>
+  );
+}
+
+function TuxGlyph() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor">
+      <path d="M8 1c-1.7 0-2.7 1.4-2.7 3.2 0 .9.2 1.5.1 2.2-.1.8-.9 1.6-1.6 2.9-.7 1.3-1 2.4-.6 3 .3.4.9.4 1.4.6.6.2 1 .6 1.6.6.5 0 .8-.3 1.1-.4h1.4c.3.1.6.4 1.1.4.6 0 1-.4 1.6-.6.5-.2 1.1-.2 1.4-.6.4-.6.1-1.7-.6-3-.7-1.3-1.5-2.1-1.6-2.9-.1-.7.1-1.3.1-2.2C10.7 2.4 9.7 1 8 1zm-1 3.1c.3 0 .5.3.5.7s-.2.7-.5.7-.5-.3-.5-.7.2-.7.5-.7zm2 0c.3 0 .5.3.5.7s-.2.7-.5.7-.5-.3-.5-.7.2-.7.5-.7zM8 6.1c.6 0 1.3.4 1.3.6 0 .3-.7.8-1.3.8s-1.3-.5-1.3-.8c0-.2.7-.6 1.3-.6z" />
+    </svg>
+  );
+}
+
+/** The Linux beta (.deb), next to the Windows button; nothing until there is one. */
+export function LinuxDownloadButton() {
+  if (!linux.downloadUrl) return null;
+  return (
+    <a
+      href={linux.downloadUrl}
+      download=""
+      className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-accent/50 px-6 text-[15px] font-semibold text-fg transition hover:bg-accent/10"
+    >
+      <TuxGlyph />
+      Linux (beta)
+    </a>
   );
 }
 
@@ -90,6 +113,7 @@ export function DownloadBand({ title = "Get WorkOS", body }: { title?: string; b
         </p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
           <DownloadButton size="lg" label={isDownloadable ? "Download for Windows" : "Get WorkOS"} />
+          <LinuxDownloadButton />
           <SecondaryButton href="/features">Explore the app</SecondaryButton>
         </div>
         <PlatformList className="mt-8 justify-center" />
