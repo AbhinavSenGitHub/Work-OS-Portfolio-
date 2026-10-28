@@ -5,6 +5,7 @@
  */
 
 import { basePath, withBase } from "./base";
+import { linuxRelease } from "./linuxRelease";
 import { release } from "./release";
 
 const env = (key: string) => {
@@ -38,7 +39,7 @@ export interface Platform {
  */
 const windowsUrl = env("NEXT_PUBLIC_WINDOWS_DOWNLOAD_URL") ?? withBase(release.file);
 
-/** Windows is the only platform with full support in the app today. */
+/** Windows has full support; Linux is an early beta (.deb). */
 export const platforms: Platform[] = [
   {
     id: "windows",
@@ -48,10 +49,17 @@ export const platforms: Platform[] = [
     downloadUrl: windowsUrl,
   },
   { id: "macos", name: "macOS", status: "coming-soon" },
-  { id: "linux", name: "Linux", status: "coming-soon" },
+  {
+    id: "linux",
+    name: "Linux",
+    status: "preview",
+    requirements: "Ubuntu 22.04+ / Debian 12+ · 64-bit · .deb",
+    downloadUrl: withBase(linuxRelease.file),
+  },
 ];
 
 export const windows = platforms[0];
+export const linux = platforms[2];
 export const isDownloadable = windows.status === "available";
 
 export const statusLabel: Record<PlatformStatus, string> = {
